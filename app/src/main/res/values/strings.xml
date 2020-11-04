@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Let\'s drink</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="non_alcoholic">Non Alcoholic</string>
+    <string name="alcoholic">Alcoholic</string>
+    <string name="thumbnail">thumbnail</string>
+    <string name="categories">Categories</string>
+</resources>

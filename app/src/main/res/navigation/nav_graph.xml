@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/categoriesFragment">
+    <fragment
+        android:id="@+id/categoriesFragment"
+        android:name="com.example.letsdrink.ui.CategoriesFragment"
+        android:label="Categories"
+        tools:layout="@layout/fragment_categories" />
+    <fragment
+        android:id="@+id/alcoholicFragment"
+        android:name="com.example.letsdrink.ui.AlcoholicFragment"
+        android:label="Alcoholic Drinks"
+        tools:layout="@layout/fragment_alcoholic" />
+    <fragment
+        android:id="@+id/nonAlcoholicFragment"
+        android:name="com.example.letsdrink.ui.NonAlcoholicFragment"
+        android:label="Non Alcoholic Drinks"
+        tools:layout="@layout/fragment_non_alcoholic" />
+</navigation>

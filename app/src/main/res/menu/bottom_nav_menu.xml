@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nonAlcoholicFragment"
+        android:title="@string/non_alcoholic"
+        android:icon="@drawable/ic_my_bar_24dp"/>
+    <item
+        android:id="@+id/categoriesFragment"
+        android:title="@string/categories"
+        android:icon="@drawable/ic_types_24dp"/>
+    <item
+        android:id="@+id/alcoholicFragment"
+        android:title="@string/alcoholic"
+        android:icon="@drawable/ic_cocktails_24dp"/>
+</menu>

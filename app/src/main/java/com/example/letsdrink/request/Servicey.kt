@@ -5,7 +5,7 @@ import com.example.letsdrink.utils.ICocktailApi
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class Servicey {
+object Servicey {
 
     private val retrofitBuilder: Retrofit.Builder =
         Retrofit.Builder().baseUrl(BASE_URL).addConverterFactory(GsonConverterFactory.create())
@@ -14,7 +14,7 @@ class Servicey {
 
     private val cocktailApi: ICocktailApi = retrofit.create(ICocktailApi::class.java)
 
-    fun getCocktailApi(): ICocktailApi? {
+    fun getCocktailApi(): ICocktailApi {
         return cocktailApi
     }
 

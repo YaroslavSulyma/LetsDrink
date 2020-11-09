@@ -1,46 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    app:cardCornerRadius="15dp">
 
-    <data>
-        <variable
-            name="drinkItem"
-            type="com.example.letsdrink.model.Drink" />
-    </data>
-    <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        app:cardCornerRadius="15dp">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:paddingLeft="5dp"
-            android:paddingRight="5dp">
+        <ImageView
+            android:id="@+id/categories_item_image_view"
+            android:layout_width="183dp"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/thumbnail"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:srcCompat="@tools:sample/avatars" />
 
-            <ImageView
-                android:id="@+id/categories_item_image_view"
-                android:layout_width="183dp"
-                android:layout_height="wrap_content"
-                android:contentDescription="@string/thumbnail"
-                android:loadImage="@{drinkItem._strDrinkThumb}"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:srcCompat="@tools:sample/avatars" />
-
-            <TextView
-                android:id="@+id/categories_item_title"
-                style="@style/TitleText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                android:text="@{String.valueOf(drinkItem._strDrink)}"
-                app:layout_constraintTop_toBottomOf="@+id/categories_item_image_view"
-                tools:text="@tools:sample/lorem/random" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </com.google.android.material.card.MaterialCardView>
-</layout>
+        <TextView
+            android:id="@+id/categories_item_title"
+            style="@style/TitleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{String.valueOf(drinkItem._strDrink)}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/categories_item_image_view"
+            tools:text="@tools:sample/lorem/random" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>

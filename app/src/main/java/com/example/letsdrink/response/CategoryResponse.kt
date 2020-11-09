@@ -7,7 +7,7 @@ import com.google.gson.annotations.SerializedName
 data class CategoryResponse(
     @SerializedName("drinks")
     @Expose()
-    private var categories: List<CategoryModel>
+    var categories: List<CategoryModel>
 
 ) {
     override fun toString(): String {

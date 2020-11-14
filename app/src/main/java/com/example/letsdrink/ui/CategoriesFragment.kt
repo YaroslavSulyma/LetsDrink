@@ -5,7 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
+import com.example.letsdrink.FragmentBase
 import com.example.letsdrink.R
 import com.example.letsdrink.model.CategoryModel
 import com.example.letsdrink.request.Servicey
@@ -17,7 +17,7 @@ import retrofit2.Callback
 import retrofit2.Response
 import java.io.IOException
 
-class CategoriesFragment : Fragment() {
+class CategoriesFragment : FragmentBase() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -53,7 +53,7 @@ class CategoriesFragment : Fragment() {
                     val categories: List<CategoryModel> = ArrayList(response.body()?.categories!!)
 
                     for (category in categories) {
-                        Log.v("Tag", "The list " + category.strCategory)
+                        Log.v("Tag", "The list ${category.strCategory}")
                     }
                 } else {
                     try {
@@ -66,7 +66,7 @@ class CategoriesFragment : Fragment() {
 
 
             override fun onFailure(call: Call<CategoryResponse>, t: Throwable) {
-                TODO("Not yet implemented")
+                showSnackbar(fragment_categories_recycler_view,"$t",context!!)
             }
 
         })

@@ -1,5 +1,6 @@
 package com.example.letsdrink.response
 
+import com.example.letsdrink.model.CocktailDetailModel
 import com.example.letsdrink.model.DrinksModel
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
@@ -7,7 +8,7 @@ import com.google.gson.annotations.SerializedName
 data class CocktailDetailResponse(
     @SerializedName("drinks")
     @Expose()
-    private var detail: DrinksModel
+    var detail: List<CocktailDetailModel>
 
 ) {
     override fun toString(): String {

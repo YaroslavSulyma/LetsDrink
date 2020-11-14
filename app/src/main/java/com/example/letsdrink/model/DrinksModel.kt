@@ -5,7 +5,7 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 data class DrinksModel(
-    private var strDrink: String,
-    private var strDrinkThumb: String,
-    private var idDrink: String
+    var strDrink: String,
+    var strDrinkThumb: String,
+    var idDrink: String
 ) : Parcelable

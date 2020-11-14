@@ -8,5 +8,6 @@ object Credentials {
         "https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Alcoholic"
     const val ALL_NON_ALCOHOLIC_COCKTAILS_URL =
         "https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Non_Alcoholic"
+    const val COCKTAIL_DETAILS = "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=11007"
 
 }

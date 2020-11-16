@@ -5,6 +5,9 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import com.example.letsdrink.viewModels.DrinksViewModel
 import com.example.letsdrink.FragmentBase
 import com.example.letsdrink.R
 import com.example.letsdrink.model.DrinksModel
@@ -18,6 +21,8 @@ import retrofit2.Response
 import java.io.IOException
 
 class NonAlcoholicFragment : FragmentBase() {
+
+    private var drinksViewModel = DrinksViewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,6 +38,14 @@ class NonAlcoholicFragment : FragmentBase() {
         button2.setOnClickListener(View.OnClickListener {
             getRetrofitResponse()
         })
+        drinksViewModel = ViewModelProvider(this).get(DrinksViewModel::class.java)
+    }
+
+    private fun observeAnyChange() {
+        drinksViewModel.getDrinks().observe(this,
+            Observer<List<DrinksModel>> {
+
+            })
     }
 
     private fun getRetrofitResponse() {

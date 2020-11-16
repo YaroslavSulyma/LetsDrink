@@ -3,6 +3,9 @@ package com.example.letsdrink.ui
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import com.example.letsdrink.viewModels.DetailsViewModel
 import com.example.letsdrink.FragmentBase
 import com.example.letsdrink.model.CocktailDetailModel
 import com.example.letsdrink.request.Servicey
@@ -15,6 +18,8 @@ import retrofit2.Response
 
 class FragmentDetails : FragmentBase() {
 
+    private var detailsViewModel = DetailsViewModel()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -26,6 +31,15 @@ class FragmentDetails : FragmentBase() {
         button4.setOnClickListener {
             getRetrofitResponse()
         }
+
+        detailsViewModel = ViewModelProvider(this).get(DetailsViewModel::class.java)
+    }
+
+    private fun observeAnyChange() {
+        detailsViewModel.getDetails().observe(this,
+            Observer<CocktailDetailModel> {
+
+            })
     }
 
     private fun getRetrofitResponse() {

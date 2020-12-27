@@ -1,4 +1,4 @@
-package com.example.letsdrink.model
+package com.example.letsdrink.data.entities
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize

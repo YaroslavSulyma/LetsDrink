@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
-@Entity(tableName = "favourite_cocktail_detail")
+@Entity(tableName = "details")
 data class CocktailDetailModel(
     @PrimaryKey
     val idDrink: String,

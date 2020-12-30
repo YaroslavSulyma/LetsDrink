@@ -1,5 +1,8 @@
 package com.example.letsdrink.di
 
+import android.content.Context
+import com.example.letsdrink.data.local.AppDatabase
+import com.example.letsdrink.data.remote.CocktailsRemoteDataSource
 import com.example.letsdrink.utils.Credentials.BASE_URL
 import com.example.letsdrink.data.remote.ICocktailApisService
 import com.google.gson.Gson
@@ -7,6 +10,7 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ApplicationComponent
+import dagger.hilt.android.qualifiers.ApplicationContext
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
@@ -25,5 +29,20 @@ object AppModule {
 
     @Provides
     fun providePokemonService(retrofit: Retrofit): ICocktailApisService = retrofit.create(
-        ICocktailApisService::class.java)
+        ICocktailApisService::class.java
+    )
+
+    @Provides
+    @Singleton
+    fun provideCocktailsRemoteDataSource(iCocktailApisService: ICocktailApisService) =
+        CocktailsRemoteDataSource(iCocktailApisService)
+
+    @Singleton
+    @Provides
+    fun provideDatabase(@ApplicationContext appContext: Context) =
+        AppDatabase.getDatabase(appContext)
+
+    @Singleton
+    @Provides
+    fun provideCocktailsDao(db: AppDatabase) = db.cocktailsDao()
 }

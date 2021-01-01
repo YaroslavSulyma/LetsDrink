@@ -12,6 +12,9 @@
         <action
             android:id="@+id/action_categoriesFragment_to_fragmentDetails"
             app:destination="@id/fragmentDetails" />
+        <action
+            android:id="@+id/action_categoriesFragment_to_drinksFragment"
+            app:destination="@id/drinksFragment" />
     </fragment>
     <fragment
         android:id="@+id/alcoholicFragment"
@@ -45,5 +48,14 @@
         <action
             android:id="@+id/action_fragmentDetails_to_nonAlcoholicFragment"
             app:destination="@id/nonAlcoholicFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/drinksFragment"
+        android:name="com.example.letsdrink.DrinksFragment"
+        android:label="fragment_drinks"
+        tools:layout="@layout/fragment_drinks" >
+        <action
+            android:id="@+id/action_drinksFragment_to_categoriesFragment"
+            app:destination="@id/categoriesFragment" />
     </fragment>
 </navigation>

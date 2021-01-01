@@ -11,16 +11,22 @@ import kotlinx.coroutines.flow.Flow
 interface CocktailsDao {
 
     @Query("SELECT * FROM categories")
-    fun getAllCategories(): Flow<CategoryListModel>
+    fun getAllCategories(): Flow<List<CategoryModel>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertAllCategories(categories: List<CategoryModel>)
 
     @Query("SELECT * FROM drinks")
-    fun getAlcoholicCocktails(): Flow<DrinksListModel>
+    suspend fun getDrinksFromCurrentCategory(): Flow<DrinksModel>
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertDrinksFromCurrentCategory(drinks: List<DrinksModel>)
 
     @Query("SELECT * FROM drinks")
-    fun getNonAlcoholicCocktails(): Flow<DrinksListModel>
+    fun getAlcoholicCocktails(): Flow<List<DrinksModel>>
+
+    @Query("SELECT * FROM drinks")
+    fun getNonAlcoholicCocktails(): Flow<List<DrinksModel>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertAllDrinks(drinks: List<DrinksModel>)

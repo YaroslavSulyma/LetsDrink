@@ -22,4 +22,4 @@ fun <T, A> performGetOperation(
             emit(Resource.error(responseStatus.message!!))
             emitAll(source)
         }
-    }.flowOn(Dispatchers.IO)
+    }.flowOn(Dispatchers.IO).conflate()

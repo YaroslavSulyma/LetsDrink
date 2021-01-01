@@ -8,7 +8,7 @@ import kotlinx.android.parcel.Parcelize
 @Parcelize
 @Entity(tableName = "categories")
 data class CategoryModel(
-    var strCategory: String,
-    var strthumb: String
+    var strCategory: String
 ) : Parcelable
+
 

@@ -13,24 +13,24 @@ class CocktailsRepository @Inject constructor(
     fun getCategories() = performGetOperation(
         databaseQuery = { localDataSource.getAllCategories() },
         networkCall = { remoteDataSource.getAllCategories() },
-        saveCallResult = { localDataSource.insertAllCategories(it.result) }
+        saveCallResult = { localDataSource.insertAllCategories(it) }
     )
 
     fun getAlcoholicCocktails() = performGetOperation(
-        databaseQuery = {localDataSource.getAlcoholicCocktails()},
-        networkCall = {remoteDataSource.getAllAlcoholicCocktails()},
-        saveCallResult = {localDataSource.insertAllDrinks(it.result)}
+        databaseQuery = { localDataSource.getAlcoholicCocktails() },
+        networkCall = { remoteDataSource.getAllAlcoholicCocktails() },
+        saveCallResult = { localDataSource.insertAllDrinks(it) }
     )
 
     fun getNonAlcoholicCocktails() = performGetOperation(
-        databaseQuery = {localDataSource.getNonAlcoholicCocktails()},
-        networkCall = {remoteDataSource.getAllNonAlcoholicCocktails()},
-        saveCallResult = {localDataSource.insertAllDrinks(it.result)}
+        databaseQuery = { localDataSource.getNonAlcoholicCocktails() },
+        networkCall = { remoteDataSource.getAllNonAlcoholicCocktails() },
+        saveCallResult = { localDataSource.insertAllDrinks(it) }
     )
 
-    fun getDrinksDetailsById(id:Int) = performGetOperation(
-        databaseQuery = {localDataSource.getDrinkDetailsById(id)},
-        networkCall = {remoteDataSource.getCocktailDetailsById(id)},
-        saveCallResult = {localDataSource.insertDrinkDetails(it)}
+    fun getDrinksDetailsById(id: Int) = performGetOperation(
+        databaseQuery = { localDataSource.getDrinkDetailsById(id) },
+        networkCall = { remoteDataSource.getCocktailDetailsById(id) },
+        saveCallResult = { localDataSource.insertDrinkDetails(it) }
     )
 }

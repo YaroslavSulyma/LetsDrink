@@ -1,18 +1,22 @@
 package com.example.letsdrink.utils
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.asLiveData
+import androidx.lifecycle.liveData
+import androidx.lifecycle.map
 import com.example.letsdrink.utils.Resource.Status.*
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.Dispatchers
 
 fun <T, A> performGetOperation(
-    databaseQuery: () -> Flow<T>,
+    databaseQuery: () -> LiveData<T>,
     networkCall: suspend () -> Resource<A>,
     saveCallResult: suspend (A) -> Unit
-): Flow<Resource<T>> =
-    flow {
+): LiveData<Resource<T>> =
+    liveData(Dispatchers.IO) {
         emit(Resource.loading())
         val source = databaseQuery.invoke().map { Resource.success(it) }
-        emitAll(source)
+        emitSource(source)
 
         val responseStatus = networkCall.invoke()
         if (responseStatus.status == SUCCESS) {
@@ -20,6 +24,21 @@ fun <T, A> performGetOperation(
 
         } else if (responseStatus.status == ERROR) {
             emit(Resource.error(responseStatus.message!!))
-            emitAll(source)
+            emitSource(source)
         }
-    }.flowOn(Dispatchers.IO).conflate()
+    }
+/*flow {
+    emit(Resource.loading())
+    val source = databaseQuery.invoke().map { Resource.success(it) }
+    emitAll(source)
+
+    val responseStatus = networkCall.invoke()
+    if (responseStatus.status == SUCCESS) {
+        saveCallResult(responseStatus.data!!)
+
+    } else if (responseStatus.status == ERROR) {
+        emit(Resource.error(responseStatus.message!!))
+        emitAll(source)
+    }
+}.flowOn(Dispatchers.IO).conflate()*/
+

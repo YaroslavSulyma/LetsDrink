@@ -17,4 +17,6 @@ open class FragmentBase : Fragment() {
         sbText.setTextColor(ContextCompat.getColor(context, R.color.colorWhite))
         snackbar.show()
     }
+
+
 }

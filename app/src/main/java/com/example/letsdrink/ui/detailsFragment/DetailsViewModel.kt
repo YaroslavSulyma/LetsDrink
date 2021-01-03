@@ -1,4 +1,4 @@
-package com.example.letsdrink.viewModels
+package com.example.letsdrink.ui.detailsFragment
 
 import androidx.lifecycle.ViewModel
 

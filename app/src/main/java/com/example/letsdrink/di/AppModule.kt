@@ -8,6 +8,7 @@ import com.example.letsdrink.utils.Credentials.BASE_URL
 import com.example.letsdrink.data.remote.ICocktailApisService
 import com.example.letsdrink.data.repository.CocktailsRepository
 import com.google.gson.Gson
+import com.google.gson.GsonBuilder
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -28,6 +29,8 @@ object AppModule {
         .addConverterFactory(GsonConverterFactory.create(gson))
         .build()
 
+    @Provides
+    fun provideGson(): Gson = GsonBuilder().create()
 
     @Provides
     fun provideCocktailService(retrofit: Retrofit): ICocktailApisService = retrofit.create(
@@ -53,6 +56,5 @@ object AppModule {
     fun provideRepository(
         remoteDataSource: CocktailsRemoteDataSource,
         localDataSource: CocktailsDao
-    ) =
-        CocktailsRepository(remoteDataSource, localDataSource)
+    ) = CocktailsRepository(remoteDataSource, localDataSource)
 }

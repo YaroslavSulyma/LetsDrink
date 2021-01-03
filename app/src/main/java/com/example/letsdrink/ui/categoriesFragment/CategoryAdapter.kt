@@ -1,4 +1,4 @@
-package com.example.letsdrink.ui
+package com.example.letsdrink.ui.categoriesFragment
 
 import android.view.LayoutInflater
 import android.view.View

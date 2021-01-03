@@ -1,5 +1,6 @@
 package com.example.letsdrink.data.local
 
+import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
@@ -11,30 +12,24 @@ import kotlinx.coroutines.flow.Flow
 interface CocktailsDao {
 
     @Query("SELECT * FROM categories")
-    fun getAllCategories(): Flow<List<CategoryModel>>
+    fun getAllCategories(): LiveData<List<CategoryModel>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertAllCategories(categories: List<CategoryModel>)
 
     @Query("SELECT * FROM drinks")
-    suspend fun getDrinksFromCurrentCategory(): Flow<DrinksModel>
-
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertDrinksFromCurrentCategory(drinks: List<DrinksModel>)
+    fun getAlcoholicCocktails(): LiveData<List<DrinksModel>>
 
     @Query("SELECT * FROM drinks")
-    fun getAlcoholicCocktails(): Flow<List<DrinksModel>>
-
-    @Query("SELECT * FROM drinks")
-    fun getNonAlcoholicCocktails(): Flow<List<DrinksModel>>
+    fun getNonAlcoholicCocktails(): LiveData<List<DrinksModel>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertAllDrinks(drinks: List<DrinksModel>)
 
-    @Query("SELECT * FROM details WHERE idDrink = :id")
-    fun getDrinkDetailsById(id: Int): Flow<CocktailDetailModel>
+    /*@Query("SELECT * FROM details WHERE idDrink = :id")
+    fun getDrinkDetailsById(id: Int): LiveData<CocktailDetailModel>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertDrinkDetails(drink: CocktailDetailModel)
+    suspend fun insertDrinkDetails(drink: CocktailDetailModel)*/
 
 }

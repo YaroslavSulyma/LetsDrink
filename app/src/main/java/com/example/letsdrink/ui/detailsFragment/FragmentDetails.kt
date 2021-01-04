@@ -18,12 +18,12 @@ class FragmentDetails : FragmentBase() {
     }
 
     override fun onAttach(context: Context) {
-        (activity as MainActivity)?.hideBottomNavigation()
+        (activity as MainActivity).hideBottomNavigation()
         super.onAttach(context)
     }
 
     override fun onDetach() {
         super.onDetach()
-        (activity as MainActivity)?.showBottomNavigation()
+        (activity as MainActivity).showBottomNavigation()
     }
 }

@@ -35,8 +35,6 @@ class CategoryAdapter(private val listener: ItemListener) :
     override fun getItemCount(): Int {
         return items.size
     }
-
-
 }
 
 class CategoryViewHolder(

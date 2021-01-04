@@ -1,11 +1,8 @@
 package com.example.letsdrink.data.entities
 
-import android.os.Parcelable
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import kotlinx.android.parcel.Parcelize
 
-@Parcelize
 @Entity(tableName = "details")
 data class CocktailDetailModel(
     @PrimaryKey
@@ -34,4 +31,4 @@ data class CocktailDetailModel(
     val strMeasure6: String?,
     val strMeasure7: String?,
     val strMeasure8: String?
-) : Parcelable
+)

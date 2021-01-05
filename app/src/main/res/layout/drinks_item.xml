@@ -17,8 +17,8 @@
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/drinks_item_thumb"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="192dp"
+            android:layout_height="192dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -26,17 +26,17 @@
             tools:src="@tools:sample/avatars" />
 
         <com.google.android.material.textview.MaterialTextView
-            style="@style/boltText"
             android:id="@+id/drinks_item_title"
+            style="@style/TitleText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="5dp"
             android:maxLines="3"
-            app:layout_constraintWidth_max="@android:dimen/thumbnail_width"
             app:layout_constraintBottom_toBottomOf="@+id/drinks_item_thumb"
-            app:layout_constraintEnd_toEndOf="@+id/drinks_item_thumb"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/drinks_item_thumb"
-            tools:text="@tools:sample/lorem/random" />
+            app:layout_constraintWidth_max="@android:dimen/thumbnail_width"
+            tools:text="drink / drink / drink" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

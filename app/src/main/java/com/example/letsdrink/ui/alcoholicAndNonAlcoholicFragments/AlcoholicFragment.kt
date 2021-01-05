@@ -8,6 +8,7 @@ import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.letsdrink.FragmentBase
 import com.example.letsdrink.R
@@ -23,6 +24,7 @@ class AlcoholicFragment : FragmentBase(), DrinksAdapter.ItemListener {
     private var binding: FragmentAlcoholicBinding by autoCleared()
     private val viewModel: AlcoholicFragmentViewModel by viewModels()
     private lateinit var adapter: DrinksAdapter
+    private lateinit var gridLayoutManager: GridLayoutManager
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -41,7 +43,8 @@ class AlcoholicFragment : FragmentBase(), DrinksAdapter.ItemListener {
 
     private fun setupRecyclerView() {
         adapter = DrinksAdapter(this)
-        binding.fragmentAlcoholicRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+        gridLayoutManager = GridLayoutManager(requireContext(),2,LinearLayoutManager.VERTICAL,false)
+        binding.fragmentAlcoholicRecyclerView.layoutManager = gridLayoutManager
         binding.fragmentAlcoholicRecyclerView.adapter = adapter
     }
 

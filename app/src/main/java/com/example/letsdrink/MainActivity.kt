@@ -11,17 +11,20 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupActionBarWithNavController
+import com.example.letsdrink.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.activity_main.*
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
-
-    lateinit var navController: NavController
+    private lateinit var binding: ActivityMainBinding
+    private lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
 
         setupViews()
     }
@@ -30,7 +33,7 @@ class MainActivity : AppCompatActivity() {
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         navController = navHostFragment.navController
-        NavigationUI.setupWithNavController(bottom_nav, navHostFragment.navController)
+        NavigationUI.setupWithNavController(binding.bottomNav, navHostFragment.navController)
 
         val appBarConfiguration = AppBarConfiguration(
             setOf(
@@ -43,11 +46,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun showBottomNavigation() {
-        bottom_nav.visibility = View.VISIBLE
+        binding.bottomNav.visibility = View.VISIBLE
     }
 
     fun hideBottomNavigation() {
-        bottom_nav.visibility = View.GONE
+        binding.bottomNav.visibility = View.GONE
     }
 
     private var backPressedOnce = false

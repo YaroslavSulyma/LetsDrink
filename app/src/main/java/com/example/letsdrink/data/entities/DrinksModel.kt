@@ -6,8 +6,11 @@ import com.google.gson.annotations.SerializedName
 
 @Entity(tableName = "drinks")
 data class DrinksModel(
-    @SerializedName("strDrink") val strDrink: String,
-    @SerializedName("strDrinkThumb") val strDrinkThumb: String?,
+    @SerializedName("strDrink")
+    val strDrink: String,
+    @SerializedName("strDrinkThumb")
+    val strDrinkThumb: String?,
+    @SerializedName("idDrink")
     @PrimaryKey
-    @SerializedName("idDrink") val idDrink: Int
+    val idDrink: Int
 )

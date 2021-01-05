@@ -1,6 +1,5 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'dagger.hilt.android.plugin'
 
@@ -33,17 +32,10 @@ android {
         jvmTarget = JavaVersion.VERSION_1_8.toString()
     }
 
-    viewBinding {
-        enabled = true
+    buildFeatures{
+        viewBinding true
     }
 
-    dataBinding {
-        enabled = false
-    }
-
-    androidExtensions {
-        experimental = true
-    }
 }
 
 dependencies {
@@ -93,6 +85,9 @@ dependencies {
     //Glide
     implementation 'com.github.bumptech.glide:glide:4.11.0'
     kapt 'com.github.bumptech.glide:compiler:4.11.0'
+
+    //SwipeRefreshLayout
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
 
     //Timber
     implementation 'com.jakewharton.timber:timber:4.7.1'

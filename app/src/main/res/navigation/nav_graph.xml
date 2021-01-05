@@ -51,11 +51,14 @@
     </fragment>
     <fragment
         android:id="@+id/drinksFragment"
-        android:name="com.example.letsdrink.ui.DrinksFragment"
+        android:name="com.example.letsdrink.ui.drinksFragment.DrinksFragment"
         android:label="fragment_drinks"
         tools:layout="@layout/fragment_drinks" >
         <action
             android:id="@+id/action_drinksFragment_to_categoriesFragment"
             app:destination="@id/categoriesFragment" />
+        <action
+            android:id="@+id/action_drinksFragment_to_fragmentDetails"
+            app:destination="@id/fragmentDetails" />
     </fragment>
 </navigation>

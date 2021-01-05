@@ -9,7 +9,7 @@ import com.example.letsdrink.data.entities.CocktailDetailModel
 import com.example.letsdrink.data.entities.DrinksModel
 
 @Database(
-    entities = [CategoryModel::class, DrinksModel::class, CocktailDetailModel::class],
+    entities = [CategoryModel::class, DrinksModel::class/*, CocktailDetailModel::class*/],
     version = 1,
     exportSchema = false
 )

@@ -15,7 +15,7 @@ import com.example.letsdrink.FragmentBase
 import com.example.letsdrink.R
 import com.example.letsdrink.databinding.FragmentNonAlcoholicBinding
 import com.example.letsdrink.ui.DrinksAdapter
-import com.example.letsdrink.utils.Resource
+import com.example.letsdrink.utils.Resource.Status.*
 import com.example.letsdrink.utils.autoCleared
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -52,17 +52,17 @@ class NonAlcoholicFragment : FragmentBase(), DrinksAdapter.ItemListener {
     }
 
     private fun setupObservers() {
-        viewModel.drinks.observe(viewLifecycleOwner, Observer {
+        viewModel.drinks.observe(viewLifecycleOwner, {
             when (it.status) {
-                Resource.Status.SUCCESS -> {
-                    //set data into adapter
+                SUCCESS -> {
                     binding.fragmentNonAlcoholicProgressBar.visibility = View.GONE
+                    Log.d("Tag", "${it.data}")
                     if (!it.data.isNullOrEmpty()) adapter.setItems(ArrayList(it.data))
                 }
-                Resource.Status.LOADING -> {
+                LOADING -> {
                     binding.fragmentNonAlcoholicProgressBar.visibility = View.VISIBLE
                 }
-                Resource.Status.ERROR -> {
+                ERROR -> {
                     showSnackbar(binding.fragmentNonAlcoholic, "${it.message}", requireContext())
                 }
             }

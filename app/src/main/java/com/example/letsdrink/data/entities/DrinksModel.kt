@@ -12,5 +12,6 @@ data class DrinksModel(
     val strDrinkThumb: String?,
     @SerializedName("idDrink")
     @PrimaryKey
-    val idDrink: Int
+    val idDrink: Int,
+    var alcohol: Boolean
 )

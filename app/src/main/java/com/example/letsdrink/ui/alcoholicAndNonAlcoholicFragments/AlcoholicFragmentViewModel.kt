@@ -6,5 +6,5 @@ import com.example.letsdrink.data.repository.CocktailsRepository
 
 class AlcoholicFragmentViewModel @ViewModelInject constructor(repository: CocktailsRepository) :
     ViewModel() {
-    val drinks = repository.getAlcoholicCocktails()
+    val drinks = repository.getDrinks(true)
 }

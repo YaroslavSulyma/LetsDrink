@@ -1,6 +1,7 @@
 package com.example.letsdrink.ui.alcoholicAndNonAlcoholicFragments
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -49,10 +50,9 @@ class AlcoholicFragment : FragmentBase(), DrinksAdapter.ItemListener {
     }
 
     private fun setupObservers() {
-        viewModel.drinks.observe(viewLifecycleOwner, Observer {
+        viewModel.drinks.observe(viewLifecycleOwner, {
             when (it.status) {
                 SUCCESS -> {
-                    //set data into adapter
                     binding.fragmentAlcoholicProgressBar.visibility = View.GONE
                     if (!it.data.isNullOrEmpty()) adapter.setItems(ArrayList(it.data))
                 }

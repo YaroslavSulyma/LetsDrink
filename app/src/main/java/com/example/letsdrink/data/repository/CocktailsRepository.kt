@@ -36,7 +36,6 @@ class CocktailsRepository @Inject constructor(
         saveCallResult = { it ->
             localDataSource.insertAllDrinks(it.drinks.onEach {
                 it.category = category
-                it.alcohol = null
             })
         }
     )

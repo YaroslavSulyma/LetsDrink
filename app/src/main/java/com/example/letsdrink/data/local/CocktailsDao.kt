@@ -16,7 +16,7 @@ interface CocktailsDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertAllCategories(categories: List<CategoryModel>)
 
-    @Query("SELECT * FROM drinks WHERE alcohol =:isAlcohol")
+    @Query("SELECT * FROM drinks WHERE alcohol =:isAlcohol AND alcohol NOT null")
     fun getAllDrinks(isAlcohol: Boolean): LiveData<List<DrinksModel>>
 
     @Query("SELECT * FROM drinks WHERE category =:category")

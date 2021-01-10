@@ -24,9 +24,20 @@ class CocktailsRepository @Inject constructor(
             localDataSource.insertAllDrinks(it.drinks.onEach { it.alcohol = isAlcohol })
         })
 
-    /*fun getDrinksDetailsById(id: Int) = performGetOperation(
+    fun getDrinkDetailsById(id: Int) = performGetOperation(
         databaseQuery = { localDataSource.getDrinkDetailsById(id) },
-        networkCall = { remoteDataSource.getCocktailDetailsById(id) },
-        saveCallResult = { localDataSource.insertDrinkDetails(it) }
-    )*/
+        networkCall = { remoteDataSource.getDrinkDetailsById(id) },
+        saveCallResult = { localDataSource.insertDrinkDetails(it.drinksDetails) }
+    )
+
+    fun getDrinkForCurrentCategory(category: String) = performGetOperation(
+        databaseQuery = { localDataSource.getAllDrinksForCurrentCategory(category) },
+        networkCall = { remoteDataSource.getDrinksForCurrentCategory(category) },
+        saveCallResult = { it ->
+            localDataSource.insertAllDrinks(it.drinks.onEach {
+                it.category = category
+                it.alcohol = null
+            })
+        }
+    )
 }

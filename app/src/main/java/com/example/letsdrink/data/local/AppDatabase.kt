@@ -5,10 +5,11 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.example.letsdrink.data.entities.CategoryModel
+import com.example.letsdrink.data.entities.DrinkDetailsModel
 import com.example.letsdrink.data.entities.DrinksModel
 
 @Database(
-    entities = [CategoryModel::class, DrinksModel::class/*, CocktailDetailModel::class*/],
+    entities = [CategoryModel::class, DrinksModel::class, DrinkDetailsModel::class],
     version = 1,
     exportSchema = false
 )

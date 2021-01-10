@@ -1,5 +1,6 @@
 package com.example.letsdrink.utils
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.liveData
@@ -21,6 +22,7 @@ fun <T, A> performGetOperation(
         val responseStatus = networkCall.invoke()
         if (responseStatus.status == SUCCESS) {
             saveCallResult(responseStatus.data!!)
+            Log.d("Tag","${responseStatus.data}")
 
         } else if (responseStatus.status == ERROR) {
             emit(Resource.error(responseStatus.message!!))

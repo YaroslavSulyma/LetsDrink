@@ -13,5 +13,6 @@ data class DrinksModel(
     @SerializedName("idDrink")
     @PrimaryKey
     val idDrink: Int,
-    var alcohol: Boolean
+    var alcohol: Boolean?,
+    var category: String?
 )

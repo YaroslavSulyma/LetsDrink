@@ -39,7 +39,7 @@ class CategoriesFragment : FragmentBase(), CategoryAdapter.ItemListener {
     }
 
     private fun setupObservers() {
-        viewModel.categories.observe(viewLifecycleOwner, Observer {
+        viewModel.categories.observe(viewLifecycleOwner, {
             when (it.status) {
                 SUCCESS -> {
                     binding.fragmentCategoriesProgressBar.visibility = View.GONE
@@ -62,7 +62,7 @@ class CategoriesFragment : FragmentBase(), CategoryAdapter.ItemListener {
 
     override fun onClicked(categoryStr: String) {
         findNavController().navigate(
-            R.id.action_categoriesFragment_to_drinksFragment, bundleOf("category" to categoryStr)
+            R.id.action_categoriesFragment_to_drinksFragment, bundleOf("strCategory" to categoryStr)
         )
     }
 

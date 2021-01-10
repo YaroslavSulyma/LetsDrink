@@ -3,6 +3,7 @@ package com.example.letsdrink.ui.categoriesFragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.letsdrink.data.entities.CategoryModel
 import com.example.letsdrink.databinding.CategoriesItemBinding
@@ -11,7 +12,7 @@ class CategoryAdapter(private val listener: ItemListener) :
     RecyclerView.Adapter<CategoryViewHolder>() {
 
     interface ItemListener {
-        fun onClicked(categoryStr: String)
+        fun onClicked(strCategory: String)
     }
 
     private val items = ArrayList<CategoryModel>()

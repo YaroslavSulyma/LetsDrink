@@ -45,6 +45,7 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navHostFragment.navController, appBarConfiguration)
     }
 
+
     fun showBottomNavigation() {
         binding.bottomNav.visibility = View.VISIBLE
     }
@@ -71,5 +72,9 @@ class MainActivity : AppCompatActivity() {
         } else {
             super.onBackPressed()
         }
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        return NavigationUI.navigateUp(navController, null)
     }
 }

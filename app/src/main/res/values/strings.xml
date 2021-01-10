@@ -6,4 +6,10 @@
     <string name="alcoholic">Alcoholic</string>
     <string name="thumbnail">thumbnail</string>
     <string name="categories">Categories</string>
+    <string name="favourite">Favourite</string>
+    <string name="ingredients">Ingredients</string>
+    <string name="instruction">Instruction</string>
+    <string name="alcohol">Alcohol:</string>
+    <string name="glass">Glass:</string>
+    <string name="iba">IBA:</string>
 </resources>

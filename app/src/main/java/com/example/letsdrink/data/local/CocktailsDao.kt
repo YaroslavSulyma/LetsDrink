@@ -19,13 +19,16 @@ interface CocktailsDao {
     @Query("SELECT * FROM drinks WHERE alcohol =:isAlcohol")
     fun getAllDrinks(isAlcohol: Boolean): LiveData<List<DrinksModel>>
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertAllDrinks(drinks: kotlin.collections.List<com.example.letsdrink.data.entities.DrinksModel>)
-
-    /*@Query("SELECT * FROM details WHERE idDrink = :id")
-    fun getDrinkDetailsById(id: Int): LiveData<CocktailDetailModel>
+    @Query("SELECT * FROM drinks WHERE category =:category")
+    fun getAllDrinksForCurrentCategory(category: String): LiveData<List<DrinksModel>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertDrinkDetails(drink: CocktailDetailModel)*/
+    suspend fun insertAllDrinks(drinks: List<DrinksModel>)
+
+    @Query("SELECT * FROM details WHERE idDrink = :id")
+    fun getDrinkDetailsById(id: Int): LiveData<DrinkDetailsModel>
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertDrinkDetails(drink: List<DrinkDetailsModel>)
 
 }

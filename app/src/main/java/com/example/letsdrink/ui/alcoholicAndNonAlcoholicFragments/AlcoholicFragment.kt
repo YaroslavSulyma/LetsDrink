@@ -1,13 +1,11 @@
 package com.example.letsdrink.ui.alcoholicAndNonAlcoholicFragments
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -44,7 +42,8 @@ class AlcoholicFragment : FragmentBase(), DrinksAdapter.ItemListener {
 
     private fun setupRecyclerView() {
         adapter = DrinksAdapter(this)
-        gridLayoutManager = GridLayoutManager(requireContext(),2,LinearLayoutManager.VERTICAL,false)
+        gridLayoutManager =
+            GridLayoutManager(requireContext(), 2, LinearLayoutManager.VERTICAL, false)
         binding.fragmentAlcoholicRecyclerView.layoutManager = gridLayoutManager
         binding.fragmentAlcoholicRecyclerView.adapter = adapter
     }
@@ -66,9 +65,9 @@ class AlcoholicFragment : FragmentBase(), DrinksAdapter.ItemListener {
         })
     }
 
-    override fun onClicked(drinkName: String) {
+    override fun onClicked(idDrink: Int) {
         findNavController().navigate(
-            R.id.action_alcoholicFragment_to_fragmentDetails, bundleOf("nameOfDrink" to drinkName)
+            R.id.action_alcoholicFragment_to_fragmentDetails, bundleOf("idDrink" to idDrink)
         )
     }
 

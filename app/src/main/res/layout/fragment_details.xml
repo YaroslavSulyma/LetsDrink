@@ -1,19 +1,179 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragment_details_scroll_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.detailsFragment.FragmentDetails"
-    android:id="@+id/fragment_details_constraint_layout">
+    android:background="@drawable/gradient_background"
+    tools:context=".ui.detailsFragment.FragmentDetails">
 
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/fragment_details_linear_layout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:orientation="vertical">
+
+        <androidx.core.widget.ContentLoadingProgressBar
+            android:id="@+id/fragment_details_progress_bar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/fragment_details_thumbnail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/thumbnail"
+            android:nestedScrollingEnabled="true"
+            tools:src="@tools:sample/backgrounds/scenic" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/fragment_details_cocktail_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="25dp"
+            android:fontFamily="sans-serif-black"
+            android:textColor="@color/colorWhite"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            tools:text="Cocktail name" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/fragment_details_cocktail_type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:fontFamily="sans-serif-black"
+            android:textColor="@color/colorWhite"
+            android:textSize="14sp"
+            tools:text="Cocktail type" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/background_for_tag_item"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <com.google.android.material.textview.MaterialTextView
+                    style="@style/descriptionText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="@string/alcohol" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/fragment_details_alcohol"
+                    style="@style/boltText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="Alcoholic" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="25dp"
+                android:background="@drawable/background_for_tag_item"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <com.google.android.material.textview.MaterialTextView
+                    style="@style/descriptionText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="@string/glass" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/fragment_details_glass"
+                    style="@style/boltText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="Cocktail glass" />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/fragment_details_favourite_iv"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:contentDescription="@string/favourite"
+                android:src="@drawable/ic_favorite_border_24"
+                app:tint="@color/colorWhite" />
+        </LinearLayout>
+
+        <com.google.android.material.textview.MaterialTextView
+            style="@style/boltText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:text="@string/ingredients" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            app:cardBackgroundColor="@color/bgBottomNavigation"
+            app:cardCornerRadius="5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:paddingBottom="5dp">
+
+                <include
+                    android:id="@+id/fragment_details_ingredients"
+                    layout="@layout/list_of_ingredients"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp" />
+
+                <include
+                    android:id="@+id/fragment_details_proportions"
+                    layout="@layout/list_of_proportions"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.textview.MaterialTextView
+            style="@style/boltText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:text="@string/instruction" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/fragment_details_instruction"
+            style="@style/descriptionText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="20dp"
+            tools:text="@tools:sample/lorem" />
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

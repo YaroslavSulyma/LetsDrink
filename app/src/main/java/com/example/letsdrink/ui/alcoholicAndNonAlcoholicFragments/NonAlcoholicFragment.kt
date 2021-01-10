@@ -1,13 +1,11 @@
 package com.example.letsdrink.ui.alcoholicAndNonAlcoholicFragments
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -56,7 +54,6 @@ class NonAlcoholicFragment : FragmentBase(), DrinksAdapter.ItemListener {
             when (it.status) {
                 SUCCESS -> {
                     binding.fragmentNonAlcoholicProgressBar.visibility = View.GONE
-                    Log.d("Tag", "${it.data}")
                     if (!it.data.isNullOrEmpty()) adapter.setItems(ArrayList(it.data))
                 }
                 LOADING -> {
@@ -69,11 +66,10 @@ class NonAlcoholicFragment : FragmentBase(), DrinksAdapter.ItemListener {
         })
     }
 
-    override fun onClicked(drinkName: String) {
+    override fun onClicked(idDrink: Int) {
         findNavController().navigate(
             R.id.action_nonAlcoholicFragment_to_fragmentDetails,
-            bundleOf("nameOfDrink" to drinkName)
+            bundleOf("idDrink" to idDrink)
         )
     }
-
 }

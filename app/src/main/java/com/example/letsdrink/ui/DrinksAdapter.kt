@@ -15,7 +15,7 @@ class DrinksAdapter(private val listener: ItemListener) :
     private val items = ArrayList<DrinksModel>()
 
     interface ItemListener {
-        fun onClicked(drinks: String)
+        fun onClicked(idDrink: Int)
     }
 
     fun setItems(items: ArrayList<DrinksModel>) {
@@ -70,7 +70,7 @@ class DrinksViewHolder(
     }
 
     override fun onClick(v: View?) {
-        listener.onClicked(drinks.strDrink)
+        listener.onClicked(drinks.idDrink)
     }
 }
 

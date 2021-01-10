@@ -40,14 +40,16 @@
         android:label="fragment_details"
         tools:layout="@layout/fragment_details">
         <action
-            android:id="@+id/action_fragmentDetails_to_categoriesFragment"
-            app:destination="@id/categoriesFragment" />
-        <action
             android:id="@+id/action_fragmentDetails_to_alcoholicFragment"
-            app:destination="@id/alcoholicFragment" />
+            app:destination="@id/alcoholicFragment"
+            app:popUpTo="@layout/fragment_alcoholic"/>
         <action
             android:id="@+id/action_fragmentDetails_to_nonAlcoholicFragment"
-            app:destination="@id/nonAlcoholicFragment" />
+            app:destination="@id/nonAlcoholicFragment"
+            app:popUpTo="@layout/fragment_non_alcoholic"/>
+        <action
+            android:id="@+id/action_fragmentDetails_to_drinksFragment"
+            app:destination="@id/drinksFragment" />
     </fragment>
     <fragment
         android:id="@+id/drinksFragment"

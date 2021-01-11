@@ -17,6 +17,7 @@ import com.example.letsdrink.utils.Resource.Status.*
 import com.example.letsdrink.utils.autoCleared
 import dagger.hilt.android.AndroidEntryPoint
 
+
 @AndroidEntryPoint
 class AlcoholicFragment : FragmentBase(), DrinksAdapter.ItemListener {
 
@@ -28,14 +29,13 @@ class AlcoholicFragment : FragmentBase(), DrinksAdapter.ItemListener {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentAlcoholicBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         setupObservers()
         setupRecyclerView()
     }
@@ -70,5 +70,4 @@ class AlcoholicFragment : FragmentBase(), DrinksAdapter.ItemListener {
             R.id.action_alcoholicFragment_to_fragmentDetails, bundleOf("idDrink" to idDrink)
         )
     }
-
 }

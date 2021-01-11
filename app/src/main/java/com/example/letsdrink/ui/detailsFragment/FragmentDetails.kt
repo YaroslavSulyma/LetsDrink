@@ -2,21 +2,15 @@ package com.example.letsdrink.ui.detailsFragment
 
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.viewModels
 import com.bumptech.glide.Glide
-import com.bumptech.glide.load.resource.bitmap.CircleCrop
 import com.example.letsdrink.FragmentBase
 import com.example.letsdrink.MainActivity
 import com.example.letsdrink.data.entities.DrinkDetailsModel
-import com.example.letsdrink.data.repository.CocktailsRepository
 import com.example.letsdrink.databinding.FragmentDetailsBinding
-import com.example.letsdrink.databinding.ListOfIngredientsBinding
-import com.example.letsdrink.databinding.ListOfProportionsBinding
 import com.example.letsdrink.utils.Resource.Status.*
 import com.example.letsdrink.utils.autoCleared
 import dagger.hilt.android.AndroidEntryPoint
@@ -31,7 +25,7 @@ class FragmentDetails : FragmentBase() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentDetailsBinding.inflate(inflater, container, false)
         return binding.root
     }

@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.letsdrink.FragmentBase
@@ -26,7 +25,7 @@ class CategoriesFragment : FragmentBase(), CategoryAdapter.ItemListener {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentCategoriesBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -60,9 +59,9 @@ class CategoriesFragment : FragmentBase(), CategoryAdapter.ItemListener {
         binding.fragmentCategoriesRecyclerView.adapter = adapter
     }
 
-    override fun onClicked(categoryStr: String) {
+    override fun onClicked(strCategory: String) {
         findNavController().navigate(
-            R.id.action_categoriesFragment_to_drinksFragment, bundleOf("strCategory" to categoryStr)
+            R.id.action_categoriesFragment_to_drinksFragment, bundleOf("strCategory" to strCategory)
         )
     }
 

@@ -16,7 +16,9 @@ class CocktailsRemoteDataSource @Inject constructor(private val iCocktailApiServ
         } else getResult { iCocktailApiService.allAlcoholicAndNonAlcoholicCocktails("Non_Alcoholic") }
     }
 
-    suspend fun getDrinkDetailsById(id: Int) = getResult { iCocktailApiService.cocktailDetails(id)}
+    suspend fun getDrinkDetailsById(id: Int) = getResult { iCocktailApiService.cocktailDetails(id) }
 
-    suspend fun getDrinksForCurrentCategory(category:String) = getResult { iCocktailApiService.cocktailsForCurrentCategory(category) }
+    suspend fun getDrinksForCurrentCategory(category: String) =
+        getResult { iCocktailApiService.cocktailsForCurrentCategory(category) }
+
 }

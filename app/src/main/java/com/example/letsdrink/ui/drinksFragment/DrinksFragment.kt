@@ -2,7 +2,6 @@ package com.example.letsdrink.ui.drinksFragment
 
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -37,7 +36,7 @@ class DrinksFragment : FragmentBase(), DrinksAdapter.ItemListener {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         binding = FragmentDrinksBinding.inflate(layoutInflater)
         return binding.root
@@ -87,6 +86,5 @@ class DrinksFragment : FragmentBase(), DrinksAdapter.ItemListener {
         findNavController().navigate(
             R.id.action_drinksFragment_to_fragmentDetails, bundleOf("idDrink" to idDrink)
         )
-        Toast.makeText(requireContext(), "$id", Toast.LENGTH_LONG).show()
     }
 }

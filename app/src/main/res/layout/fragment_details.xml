@@ -45,6 +45,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="25dp"
+            android:layout_marginEnd="25dp"
             android:fontFamily="sans-serif-black"
             android:textColor="@color/colorWhite"
             android:textSize="14sp"
@@ -105,15 +106,6 @@
                     tools:text="Cocktail glass" />
             </LinearLayout>
 
-            <ImageView
-                android:id="@+id/fragment_details_favourite_iv"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="20dp"
-                android:contentDescription="@string/favourite"
-                android:src="@drawable/ic_favorite_border_24"
-                app:tint="@color/colorWhite" />
         </LinearLayout>
 
         <com.google.android.material.textview.MaterialTextView
@@ -167,12 +159,12 @@
             style="@style/descriptionText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
             android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
             android:layout_marginRight="10dp"
+            android:layout_marginBottom="20dp"
             android:textSize="17sp"
             android:textStyle="bold"
-            android:layout_marginBottom="20dp"
             tools:text="@tools:sample/lorem" />
 
     </LinearLayout>

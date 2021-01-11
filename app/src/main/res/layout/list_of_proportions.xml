@@ -5,7 +5,7 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
         android:id="@+id/fragment_recipe_proportion_1"
         style="@style/boltText"
         android:layout_width="wrap_content"
@@ -14,7 +14,7 @@
         android:layout_marginEnd="50dp"
         tools:text="Tequila" />
 
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
         android:id="@+id/fragment_recipe_proportion_2"
         style="@style/boltText"
         android:layout_width="wrap_content"

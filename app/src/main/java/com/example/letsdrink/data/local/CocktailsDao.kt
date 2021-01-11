@@ -5,7 +5,9 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.example.letsdrink.data.entities.*
+import com.example.letsdrink.data.entities.CategoryModel
+import com.example.letsdrink.data.entities.DrinkDetailsModel
+import com.example.letsdrink.data.entities.DrinksModel
 
 @Dao
 interface CocktailsDao {

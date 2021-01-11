@@ -12,4 +12,5 @@
     <string name="alcohol">Alcohol:</string>
     <string name="glass">Glass:</string>
     <string name="iba">IBA:</string>
+    <string name="choose_a_drink_for_today">Choose a drink for today?</string>
 </resources>

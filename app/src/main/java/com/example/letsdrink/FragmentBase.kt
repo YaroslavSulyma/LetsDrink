@@ -18,5 +18,4 @@ open class FragmentBase : Fragment() {
         snackbar.show()
     }
 
-
 }

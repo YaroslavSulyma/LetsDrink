@@ -5,7 +5,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.switchMap
-import com.example.letsdrink.data.entities.DrinkDetailsModel
 import com.example.letsdrink.data.entities.DrinksModel
 import com.example.letsdrink.data.repository.CocktailsRepository
 import com.example.letsdrink.utils.Resource

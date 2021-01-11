@@ -1,8 +1,6 @@
 package com.example.letsdrink.di
 
 import android.content.Context
-import com.bumptech.glide.annotation.GlideModule
-import com.bumptech.glide.module.AppGlideModule
 import com.example.letsdrink.data.local.AppDatabase
 import com.example.letsdrink.data.local.CocktailsDao
 import com.example.letsdrink.data.remote.CocktailsRemoteDataSource
@@ -60,6 +58,4 @@ object AppModule {
         localDataSource: CocktailsDao
     ) = CocktailsRepository(remoteDataSource, localDataSource)
 
-    /*@GlideModule
-    class MyGlideModule : AppGlideModule()*/
 }
